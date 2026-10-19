@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>BC Grasslands Circuit</title><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Grasslands"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#2f6b4f">
+<title>BC Grasslands Circuit</title><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Grasslands"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#865d36">
 <link rel="stylesheet" href="lib/leaflet.css">
 <style>
-:root{--bg:#f3efe5;--fg:#25322b;--mut:#6a766d;--card:#fbf9f3;--line:#ddd6c4;--acc:#2f6b4f;--hi:#c4622d}
-@media(prefers-color-scheme:dark){:root{--bg:#131b17;--fg:#e8eee9;--mut:#9bb0a3;--card:#1c2721;--line:#33453b;--acc:#7fc8a0;--hi:#ff9a5e}}
+:root{--bg:#efe7da;--fg:#3e362e;--mut:#6f5f4e;--card:#f9f4eb;--line:#dacbb8;--acc:#865d36;--hi:#ac8968}
+@media(prefers-color-scheme:dark){:root{--bg:#2a241f;--fg:#f0e8dc;--mut:#b8a898;--card:#3e362e;--line:#594c3f;--acc:#ac8968;--hi:#c9a47c}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{height:100%;margin:0;-webkit-text-size-adjust:100%}@supports(height:100dvh){html,body{height:100dvh}}
 body{background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
 #map{position:absolute;z-index:0;top:0;left:0;right:0;bottom:calc(var(--sh,45%) - 22px)}#map .leaflet-bottom{margin-bottom:22px}
@@ -16,10 +16,10 @@ body{background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system
 h2{font:700 1.25rem Georgia,serif;margin:4px 0}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
 .stats div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 5px;text-align:center;box-shadow:0 1px 3px #0001}.stats b{display:block;white-space:nowrap;font:700 clamp(.76rem,3.3vw,1rem) Georgia,serif}.stats span{color:var(--mut);font-size:.8rem}
-.stop{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}.stop i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--hi);color:var(--bg);font:700 .8rem/24px system-ui;text-align:center;font-style:normal}.mk,.stop i{display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;font-style:normal;font-weight:700}.ic{display:inline-block;vertical-align:-2px}.mk .ic,.fab .ic,.stop i .ic{display:block;vertical-align:baseline}#elv .ic{margin-right:3px}#elv,#prg{white-space:nowrap}.sun{margin:6px 0;white-space:nowrap;font-size:clamp(.7rem,3vw,.8rem)}.sun .ic{margin-right:2px}.leg .ic{display:inline;vertical-align:-2px}.mk.w{background:#1e88e5;width:17px;height:17px;border-width:1.5px;opacity:.85;box-shadow:none}
+.stop{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}.stop i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--hi);color:var(--bg);font:700 .8rem/24px system-ui;text-align:center;font-style:normal}.mk,.stop i{display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;font-style:normal;font-weight:700}.ic{display:inline-block;vertical-align:-2px}.mk .ic,.fab .ic,.stop i .ic{display:block;vertical-align:baseline}#elv .ic{margin-right:3px}#elv,#prg{white-space:nowrap}.sun{margin:6px 0;white-space:nowrap;font-size:clamp(.7rem,3vw,.8rem)}.sun .ic{margin-right:2px}.leg .ic{display:inline;vertical-align:-2px}.mk.w{background:#3a86b8;width:17px;height:17px;border-width:1.5px;opacity:.85;box-shadow:none}
 .mk{width:28px;height:28px;border-radius:50%;border:2px solid #fff;font-size:15px;line-height:24px;box-shadow:0 1px 4px #0006}
-.mk.s,.mk.e,.stop.s i,.stop.e i{background:#d32f2f}.mk.s,.mk.e{width:34px;height:34px;border-radius:9px;font-size:18px;line-height:30px;margin:-3px}
-.mk.c,.stop.c i{background:#1e6fe0}.mk.p,.stop.p i{background:#f5a623;color:#3a2a00}
+.mk.s,.mk.e,.stop.s i,.stop.e i{background:#a8452b}.mk.s,.mk.e{width:34px;height:34px;border-radius:9px;font-size:18px;line-height:30px;margin:-3px}
+.mk.c,.stop.c i{background:#3f6f8a}.mk.p,.stop.p i{background:#e0a63a;color:#3a2a00}
 .stop i{font-size:.95rem;line-height:24px}.leg{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.8rem;color:var(--mut);margin:8px 0}.leg b{color:var(--fg)}
 .stop p{margin:0}small{color:var(--mut)}
 svg.pr{width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px}
@@ -42,6 +42,7 @@ svg.pr{touch-action:pan-y;cursor:crosshair}.pro{margin:4px 2px 8px;min-height:1.
 .dsub{color:var(--mut);font-size:.82rem;margin:3px 0 7px}.dr{display:flex;justify-content:space-between;gap:6px;font-size:clamp(.72rem,3.2vw,.88rem);font-weight:600;white-space:nowrap}.dr .ic{display:inline;vertical-align:-2px;color:var(--mut)}
 .pb{height:8px;border-radius:4px;background:var(--line);margin:9px 0 3px;overflow:hidden}.pb i{display:block;height:100%;width:0;background:var(--c);transition:width .5s ease}.pt{color:var(--mut);font-size:.75rem}
 .opt{display:block;width:100%;text-align:left;padding:8px 12px;border:0;background:none;color:var(--fg);font:inherit;border-radius:8px;white-space:nowrap}.opt[aria-checked=true]{font-weight:700;color:var(--acc)}
+#map.topo .leaflet-tile-pane{filter:sepia(.3) saturate(.85) contrast(.96)}@media(prefers-color-scheme:dark){#map.topo .leaflet-tile-pane{filter:sepia(.3) saturate(.8) brightness(.82) contrast(.96)}}
 </style></head><body>
 <div id="map"></div><div id="toast"></div>
 <button class="fab" id="loc" style="top:calc(10px + env(safe-area-inset-top,0))" title="My location">◎</button>
@@ -49,7 +50,7 @@ svg.pr{touch-action:pan-y;cursor:crosshair}.pro{margin:4px 2px 8px;min-height:1.
 <button class="fab" id="lns" style="top:calc(110px + env(safe-area-inset-top,0))" title="Show or hide trip lines">〰</button>
 <button class="fab" id="lay" style="right:10px;bottom:calc(var(--sh,45%) + 30px)" title="Map style"></button>
 <div class="chip" id="laymenu" style="display:none;position:absolute;right:58px;bottom:calc(var(--sh,45%) + 30px);z-index:950;padding:2px"><button class="opt" data-b="topo" aria-checked="true">Topo</button><button class="opt" data-b="sat" aria-checked="false">Satellite <small>(online only)</small></button></div>
-<div id="hud"><div class="hrow"><button class="chip" id="cmp" title="Compass (true north). Tap to enable."><span style="font-size:10px;line-height:8px;color:var(--hi)">▼</span><svg id="dial" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="var(--line)" stroke-width="2"/><polygon points="24,5 29,24 19,24" fill="#d32f2f"/><polygon points="24,43 29,24 19,24" fill="var(--mut)"/><text x="24" y="17" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">N</text></svg><b id="hd">–°</b></button><div class="chip" id="elv">⛰ <small>waiting for GPS</small></div></div></div>
+<div id="hud"><div class="hrow"><button class="chip" id="cmp" title="Compass (true north). Tap to enable."><span style="font-size:10px;line-height:8px;color:var(--hi)">▼</span><svg id="dial" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="var(--line)" stroke-width="2"/><polygon points="24,5 29,24 19,24" fill="#a8452b"/><polygon points="24,43 29,24 19,24" fill="var(--mut)"/><text x="24" y="17" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">N</text></svg><b id="hd">–°</b></button><div class="chip" id="elv">⛰ <small>waiting for GPS</small></div></div></div>
 <div class="chip" id="tstb" style="display:none;position:absolute;left:10px;bottom:calc(var(--sh,45%) + 86px);z-index:955;align-items:center;gap:8px;font-size:.75rem;padding:4px 6px 4px 9px;max-width:min(260px,80vw)"><span>Practice mode: tap the map to place yourself</span><button class="btn" id="tstx" style="flex:none;width:auto;padding:3px 9px;font-size:.75rem">Exit</button></div>
 <div class="chip" id="prg" style="display:none;position:absolute;left:10px;bottom:calc(var(--sh,45%) + 12px);z-index:900;max-width:min(190px,62vw);font-size:.72rem;line-height:1.35;padding:4px 7px"></div>
 <div id="sheet"><div id="grab" role="separator" aria-label="Drag to resize the panel"><span></span></div><div id="tabs"></div><div id="body"><p style="padding:6px 14px"><b>Starting app…</b><br><small>Page version 34. If this message stays, the app did not finish starting.</small></p></div></div>
